@@ -1,0 +1,2 @@
+90. Quel message DHCPv4 un client enverra-t-il pour accepter une adresse IPv4 proposée par un serveur DHCP ?
+90. Quel message DHCPv4 un client enverra-t-il pour accepter une adresse IPv4 proposée par un serveur DHCP ?
