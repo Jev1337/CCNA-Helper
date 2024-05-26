@@ -8,6 +8,7 @@ from pystray import MenuItem as item
 import pystray
 from PIL import Image
 import threading
+import os
 
 
 def load_settings():
@@ -44,6 +45,11 @@ def on_press(key):
         return False
     if key == keyboard.Key.f4:
         return False
+    if key == keyboard.Key.ctrl_r:
+        paste = pyperclip.paste()
+        #remove \n \r
+        paste = paste.replace('\n', ' ').replace('\r', ' ')
+        os.system(f'py disp.py --content "{paste}" --x {X_TOOLTIP} --y {Y_TOOLTIP} --duration {TOOLTIP_DURATION}')
 
 
 def search_in_html(text):
@@ -56,8 +62,9 @@ def search_in_html(text):
     questions = soup.find_all('strong')
     questions = [question for question in questions if question.text[0].isdigit()]
     i = 0
+    
     for question in questions:
-        if text in question.text.replace(u'\xa0', u' '):
+        if text.lower() in question.text.replace(u'\xa0', u' ').lower():
             answer = question.find_next('li', class_='correct_answer')
             while i < 5 and answer is not None:
                 answers.append(answer.text)
@@ -95,6 +102,13 @@ print(f'Hotkey set to {settings["HOTKEY"]}')
 PANIC_KEY = keyboard.Key[settings['PANIC_KEY']]
 print(f'Panic key set to {settings["PANIC_KEY"]}')
 print('OVERRIDE: Press F4 to exit the program.')
+X_TOOLTIP = settings['X_TOOLTIP']
+Y_TOOLTIP = settings['Y_TOOLTIP']
+print(f'Tooltip position set to ({X_TOOLTIP}, {Y_TOOLTIP})')
+TOOLTIP_DURATION = settings['TOOLTIP_DURATION']
+print(f'Tooltip duration set to {TOOLTIP_DURATION} ms')
+print('-' * 50)
+print('Show Clipboard content: Press RIGHT CTRL')
 
 try:
     with keyboard.Listener(on_press=on_press) as listener:

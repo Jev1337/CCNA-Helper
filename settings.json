@@ -1,5 +1,8 @@
 {
     "CCNA_HTML_LOCATION": "index.html",
     "HOTKEY": "f8",
-    "PANIC_KEY": "f4"
+    "PANIC_KEY": "f4",
+    "X_TOOLTIP": "1",
+    "Y_TOOLTIP": "1014",
+    "TOOLTIP_DURATION": "500"
 }
