@@ -1,0 +1,6 @@
+pynput
+beautifulsoup4
+pyautogui
+pyperclip
+pystray
+tkinter

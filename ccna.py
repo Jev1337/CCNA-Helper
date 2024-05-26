@@ -8,7 +8,9 @@ from pystray import MenuItem as item
 import pystray
 from PIL import Image
 import threading
-import os
+#import os
+import subprocess
+
 
 
 def load_settings():
@@ -49,7 +51,8 @@ def on_press(key):
         paste = pyperclip.paste()
         #remove \n \r
         paste = paste.replace('\n', ' ').replace('\r', ' ')
-        os.system(f'py disp.py --content "{paste}" --x {X_TOOLTIP} --y {Y_TOOLTIP} --duration {TOOLTIP_DURATION}')
+        #os.system(f'python disp.py --content "{paste}" --x {X_TOOLTIP} --y {Y_TOOLTIP} --duration {TOOLTIP_DURATION}')
+        subprocess.run(f'python disp.py --content "{paste}" --x {X_TOOLTIP} --y {Y_TOOLTIP} --duration {TOOLTIP_DURATION}', shell=True)
 
 
 def search_in_html(text):
