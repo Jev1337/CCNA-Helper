@@ -1,24 +1,29 @@
-# CCNA Helper
 
-Step 1:
-Build with:
+# PacketTracerLoader
+This is a guide on how to build and configure the PacketTracerLoader.
+
+## Building the Application
+Build the application using PyInstaller. This will create a single executable file with all the dependencies included:
 ```py
 pyinstaller --onefile --windowed --icon icon.ico -n PacketTracerLoader ccna.py
 ```
+Copy the following files into the `dist` folder:
+* `settings.json`
+* `icon.png`
+* `index.html`
+* `disp.py`
 
-Step 2: Copy "settings.json" "icon.png" "index.html" "disp.py" inside dist folder.
+## Configuring the Application
+Configure the application by modifying the `settings.json` file:
 
-Step 3: Configure settings in settings.json:
+* `CCNA_HTML_LOCATION`: Path to the .html file containing the answers (downloaded from the CCNAReponses website).
+* `HOTKEY`: Key combination for the Auto Select + Copy + Get Answers function.
+* `MANUAL_KEY`: Key combination to copy the selection and get the answers (does not auto select).
+* `PANIC_KEY`: Key to close the app.
+* `X_TOOLTIP`: X coordinate for the answer tooltip.
+* `Y_TOOLTIP`: Y coordinate for the answer tooltip.
+* `TOOLTIP_DURATION`: Duration (in milliseconds) for the answer tooltip to stay on the screen.
 
-CCNA_HTML_LOCATION : This parameter is to locate where the answers are in .html (downloaded from CCNAReponses website)<br>
-HOTKEY : This parameter is the Auto Select + Copy + Get Answers hotkey<br>
-MANUAL_KEY : This parameter only Copies the selection and gets the answers (does not auto select)<br>
-PANIC_KEY : This parameter allows you to pick another key to close the app<br>
-X_TOOLTIP : Where you want the answer to be shown (X coordinates)<br>
-Y_TOOLTIP : Where you want the answer to be shown (Y coordinates)<br>
-TOOLTIP_DURATION : How long you want the tooltip to stay on the screen for.<br>
-
-
-HARDCODED Keys:<br>
-F4 Button always closes the app<br>
-RIGHT CONTROL is the button to use to SHOW answers.
+### Hardcoded Keys
+* `F4`: Closes the application.
+* `RIGHT CONTROL`: Shows the answer.
