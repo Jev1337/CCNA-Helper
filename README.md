@@ -30,3 +30,11 @@ Configure the application by modifying the `settings.json` file:
 ### Hardcoded Keys
 * `F4`: Closes the application.
 * `RIGHT CONTROL`: Shows the answer.
+
+## Tested on
+
+Note that this was ONLY tested on <a href="https://ccnareponses.com/ccna-2-examen-final-de-cours-srwe-v7-0-questions-reponses/"> the french version of CCNA 2 SWRE 7.0 on CCNAREPOSNES website</a>. This software can be improved to work with all versions.
+
+## Responsability
+
+I do not take any responsability for missuse of this software/script. This is done only for educational purposes.
