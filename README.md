@@ -20,5 +20,5 @@ TOOLTIP_DURATION : How long you want the tooltip to stay on the screen for.
 
 
 HARDCODED Keys:
-F4 Button always closes the app
+F4 Button always closes the app<br>
 RIGHT CONTROL is the button to use to SHOW answers.
