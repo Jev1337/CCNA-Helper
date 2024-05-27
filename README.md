@@ -1,6 +1,9 @@
 
 # PacketTracerLoader
 This is a guide on how to build and configure the PacketTracerLoader.
+```py
+pip install -r requirements.txt
+```
 
 ## Building the Application
 Build the application using PyInstaller. This will create a single executable file with all the dependencies included:
