@@ -45,6 +45,12 @@ def on_press(key):
     if key == PANIC_KEY:
         icon.stop()
         return False
+    if key == MANUAL_KEY:
+        pyautogui.hotkey('ctrl', 'c')
+        search_text = pyperclip.paste()
+        search_text = search_text.strip()
+        print(f'Searching for: {search_text}')
+        search_in_html(search_text)
     if key == keyboard.Key.f4:
         return False
     if key == keyboard.Key.ctrl_r:
@@ -67,7 +73,7 @@ def search_in_html(text):
     i = 0
     
     for question in questions:
-        if text.lower() in question.text.replace(u'\xa0', u' ').lower():
+        if text.lower() in question.text.replace(u'\xa0', u' ').lower() or question.text.replace(u'\xa0', u' ').lower() in text.lower():
             answer = question.find_next('li', class_='correct_answer')
             while i < 5 and answer is not None:
                 answers.append(answer.text)
@@ -104,6 +110,8 @@ COMBINATION = keyboard.Key[settings['HOTKEY']]
 print(f'Hotkey set to {settings["HOTKEY"]}')
 PANIC_KEY = keyboard.Key[settings['PANIC_KEY']]
 print(f'Panic key set to {settings["PANIC_KEY"]}')
+MANUAL_KEY = keyboard.Key[settings['MANUAL_KEY']]
+print(f'Manual key set to {settings["MANUAL_KEY"]}')
 print('OVERRIDE: Press F4 to exit the program.')
 X_TOOLTIP = settings['X_TOOLTIP']
 Y_TOOLTIP = settings['Y_TOOLTIP']
